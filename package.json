@@ -1,0 +1,41 @@
+{
+  "name": "zkerja",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "sass": "sass --watch public/assets/scss/style.scss:public/assets/css/style.css",
+    "prettier": "prettier --check \"./**/*.{js,jsx,ts,tsx,css,scss,html,md,mdx,json}\" --config ./.prettierrc.json --ignore-path ./.prettierignore",
+    "prettier:write": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,scss,html,md,mdx,json}\" --config ./.prettierrc.json --ignore-path ./.prettierignore"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
+    "firebase": "^9.15.0",
+    "mongoose": "^6.6.1",
+    "next": "^13.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-firebase-hooks": "^5.1.1",
+    "react-hook-form": "^7.42.1",
+    "react-perfect-scrollbar": "^1.5.8",
+    "sass": "^1.56.1",
+    "swiper": "^8.4.4",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "eslint": "^8.30.0",
+    "eslint-config-next": "^13.1.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.1"
+  }
+}

@@ -1,0 +1,7 @@
+.next
+out
+build
+dist
+public
+node_modules
+serviceWorker.js

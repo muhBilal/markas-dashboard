@@ -1,0 +1,8 @@
+.next
+out
+build
+coverage
+dist
+public
+node_modules
+CHANGELOG.md
