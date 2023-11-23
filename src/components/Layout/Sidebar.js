@@ -18,8 +18,8 @@ const { pathname } = router;
                     <li> <a className={pathname === '/regionals' ? 'dashboard2 active' : 'dashboard2'}  href="/regionals"><img src="assets/imgs/page/dashboard/recruiters.svg"
                         alt="jobBox"/><span className="name">Regional</span></a>
                     </li>
-                    <li> <a className={pathname === '/asfd' ? 'dashboard2 active' : 'dashboard2'}  href="/my-job-grid"><img src="assets/imgs/page/dashboard/jobs.svg"
-                        alt="jobBox"/><span className="name">My Jobs</span></a>
+                    <li> <a className={pathname === '/events' ? 'dashboard2 active' : 'dashboard2'}  href="/event"><img src="assets/imgs/page/dashboard/jobs.svg"
+                        alt="jobBox"/><span className="name">Events</span></a>
                     </li>
                     <li> <a className={pathname === '/event-album' ? 'dashboard2 active' : 'dashboard2'}  href="/event-album"><img src="assets/imgs/page/dashboard/tasks.svg"
                         alt="jobBox"/><span className="name">Event Album</span></a>

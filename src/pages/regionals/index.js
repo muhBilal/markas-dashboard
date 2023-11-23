@@ -75,7 +75,7 @@ const Index = () => {
             <div className="modal-body">
               <div className="form-group">
                 <label className="form-label" htmlFor="input-1">Nama Lokasi</label>
-                <input className="form-control" id="input-1" type="text" required="" name="fullname" defaultValue={`Surabaya`} onChange={(e) => {
+                <input className="form-control" id="input-1" type="text" required="" name="fullname" onChange={(e) => {
                   setRegionalName(e.target.value);
                 }} />
               </div>
