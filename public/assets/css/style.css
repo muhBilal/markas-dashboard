@@ -3082,7 +3082,7 @@ option {
   top: -15px;
   right: -16px;
   padding: 0px;
-  z-index: 1234;
+  z-index: 100;
 }
 
 .btn-collapsed {

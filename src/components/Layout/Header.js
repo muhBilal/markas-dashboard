@@ -58,7 +58,8 @@ const Header = () => {
                             </ul>
                         </div>
                         <div className="header-right">
-                            <div className="block-signin"><a className="btn btn-default icon-edit hover-up" href="post-job.html">Post Job</a>
+                            <div className="block-signin">
+                                {/*<a className="btn btn-default icon-edit hover-up" href="post-job.html">Post Job</a>*/}
                                 <div className="dropdown d-inline-block"><a className="btn btn-notify" id="dropdownNotify" type="button"
                                     data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"></a>
                                     <ul className="dropdown-menu dropdown-menu-light dropdown-menu-end" aria-labelledby="dropdownNotify">
