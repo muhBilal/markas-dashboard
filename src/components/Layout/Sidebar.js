@@ -1,39 +1,43 @@
 import React from 'react';
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
+const router = useRouter();
+const { pathname } = router;
+
     return (
         <div className="nav"><a className="btn btn-expanded"></a>
             <nav className="nav-main-menu">
                 <ul className="main-menu">
-                    <li> <a className="dashboard2" href="/"><img src="assets/imgs/page/dashboard/dashboard.svg"
+                    <li> <a className={pathname === '/' ? 'dashboard2 active' : 'dashboard2'}  href="/"><img src="assets/imgs/page/dashboard/dashboard.svg"
                         alt="jobBox"/><span className="name">Dashboard</span></a>
                     </li>
-                    <li> <a className="dashboard2" href="/candidate"><img src="assets/imgs/page/dashboard/candidates.svg"
+                    <li> <a className={pathname === '/candidate' ? 'dashboard2 active' : 'dashboard2'}  href="/candidate"><img src="assets/imgs/page/dashboard/candidates.svg"
                         alt="jobBox"/><span className="name">Candidates</span></a>
                     </li>
-                    <li> <a className="dashboard2" href="/recruiters"><img src="assets/imgs/page/dashboard/recruiters.svg"
-                        alt="jobBox"/><span className="name">Recruiters</span></a>
+                    <li> <a className={pathname === '/regionals' ? 'dashboard2 active' : 'dashboard2'}  href="/regionals"><img src="assets/imgs/page/dashboard/recruiters.svg"
+                        alt="jobBox"/><span className="name">Regional</span></a>
                     </li>
-                    <li> <a className="dashboard2" href="/my-job-grid"><img src="assets/imgs/page/dashboard/jobs.svg"
+                    <li> <a className={pathname === '/asfd' ? 'dashboard2 active' : 'dashboard2'}  href="/my-job-grid"><img src="assets/imgs/page/dashboard/jobs.svg"
                         alt="jobBox"/><span className="name">My Jobs</span></a>
                     </li>
-                    <li> <a className="dashboard2" href="/my-tasks-list"><img src="assets/imgs/page/dashboard/tasks.svg"
+                    <li> <a className={pathname === '/asdf' ? 'dashboard2 active' : 'dashboard2'}  href="/my-tasks-list"><img src="assets/imgs/page/dashboard/tasks.svg"
                         alt="jobBox"/><span className="name">Tasks List</span></a>
                     </li>
-                    <li> <a className="dashboard2" href="/profile"><img src="assets/imgs/page/dashboard/profiles.svg"
+                    <li> <a className={pathname === '/adf' ? 'dashboard2 active' : 'dashboard2'}  href="/profile"><img src="assets/imgs/page/dashboard/profiles.svg"
                         alt="jobBox"/><span className="name">My Profiles</span></a>
                     </li>
-                    <li> <a className="dashboard2" href="/my-resume"><img src="assets/imgs/page/dashboard/cv-manage.svg"
+                    <li> <a className={pathname === '/afd' ? 'dashboard2 active' : 'dashboard2'}  href="/my-resume"><img src="assets/imgs/page/dashboard/cv-manage.svg"
                         alt="jobBox"/><span className="name">CV Manage</span></a>
                     </li>
-                    <li> <a className="dashboard2" href="/settings"><img src="assets/imgs/page/dashboard/settings.svg"
+                    <li> <a className={pathname === '/asdf' ? 'dashboard2 active' : 'dashboard2'}  href="/settings"><img src="assets/imgs/page/dashboard/settings.svg"
                         alt="jobBox"/><span className="name">Setting</span></a>
                     </li>
-                    <li> <a className="dashboard2 active" href="/authentication"><img
+                    <li> <a className={pathname === '/asdf' ? 'dashboard2 active' : 'dashboard2'}  href="/authentication"><img
                         src="assets/imgs/page/dashboard/authentication.svg" alt="jobBox"/><span
                             className="name">Authentication</span></a>
                     </li>
-                    <li> <a className="dashboard2" href="/login"><img src="assets/imgs/page/dashboard/logout.svg"
+                    <li> <a className={pathname === '/asdf' ? 'dashboard2 active' : 'dashboard2'}  href="/login"><img src="assets/imgs/page/dashboard/logout.svg"
                         alt="jobBox"/><span className="name">Logout</span></a>
                     </li>
                 </ul>
