@@ -21,8 +21,8 @@ const { pathname } = router;
                     <li> <a className={pathname === '/asfd' ? 'dashboard2 active' : 'dashboard2'}  href="/my-job-grid"><img src="assets/imgs/page/dashboard/jobs.svg"
                         alt="jobBox"/><span className="name">My Jobs</span></a>
                     </li>
-                    <li> <a className={pathname === '/asdf' ? 'dashboard2 active' : 'dashboard2'}  href="/my-tasks-list"><img src="assets/imgs/page/dashboard/tasks.svg"
-                        alt="jobBox"/><span className="name">Tasks List</span></a>
+                    <li> <a className={pathname === '/event-album' ? 'dashboard2 active' : 'dashboard2'}  href="/event-album"><img src="assets/imgs/page/dashboard/tasks.svg"
+                        alt="jobBox"/><span className="name">Event Album</span></a>
                     </li>
                     <li> <a className={pathname === '/adf' ? 'dashboard2 active' : 'dashboard2'}  href="/profile"><img src="assets/imgs/page/dashboard/profiles.svg"
                         alt="jobBox"/><span className="name">My Profiles</span></a>

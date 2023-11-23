@@ -6,11 +6,11 @@ import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
 
 const Index = () => {
-  const [regionals, setRegionals] = React.useState([]);
+  const [albums, setAlbums] = React.useState([]);
   const [render, setRender] = React.useState(false);
   const [show, setShow] = useState(false);
   const [modalId, setModalId] = useState("");
-  const [regionalName, setRegionalName] = useState("");
+  const [albumName, setAlbumName] = useState("");
   const handleClose = () => {
     setShow(false);
     // window.location.reload();
@@ -21,14 +21,14 @@ const Index = () => {
   };
 
   const getRegional = async () => {
-    const regional = await Axios.get(process.env.NEXT_PUBLIC_API_URL + "admin/regional");
-    const { data } = regional.data;
-    setRegionals([]);
-    setRegionals(data);
+    const response = await Axios.get(process.env.NEXT_PUBLIC_API_URL + "admin/event_album");
+    const { data } = response.data;
+    setAlbums([]);
+    setAlbums(data);
   };
 
   const handleDelete = async (id) => {
-    await Axios.delete(process.env.NEXT_PUBLIC_API_URL + "admin/regional/" + id);
+    await Axios.delete(process.env.NEXT_PUBLIC_API_URL + "admin/event_album/" + id);
     setRender(!render);
     Swal.fire(
       'Sukses!',
@@ -38,21 +38,21 @@ const Index = () => {
   };
 
   const handleUpdate = async () => {
-    console.log(regionalName);
-    await Axios.put(process.env.NEXT_PUBLIC_API_URL + "admin/regional/" + modalId, {
-      name: regionalName
+    console.log(albumName);
+    await Axios.put(process.env.NEXT_PUBLIC_API_URL + "admin/event_album/" + modalId, {
+      name: albumName
     });
     handleClose()
-    setRegionals('')
+    setAlbums('')
     setRender(!render);
   };
 
   const handleCreateRegional = async () => {
-    await Axios.post(process.env.NEXT_PUBLIC_API_URL + "admin/regional", {
-      name: regionalName
+    await Axios.post(process.env.NEXT_PUBLIC_API_URL + "admin/event_album", {
+      name: albumName
     });
     setRender(!render);
-    setRegionalName()
+    setAlbumName()
     Swal.fire(
       'Sukses!',
       'Data berhasil ditambahkan!',
@@ -64,7 +64,7 @@ const Index = () => {
   }, [render]);
   return (
     <Layout>
-      <a className="btn btn-default icon-edit hover-up mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Daerah</a>
+      <a className="btn btn-default icon-edit hover-up mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Album</a>
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
@@ -74,9 +74,9 @@ const Index = () => {
             </div>
             <div className="modal-body">
               <div className="form-group">
-                <label className="form-label" htmlFor="input-1">Nama Lokasi</label>
+                <label className="form-label" htmlFor="input-1">Nama Album</label>
                 <input className="form-control" id="input-1" type="text" required="" name="fullname" defaultValue={`Surabaya`} onChange={(e) => {
-                  setRegionalName(e.target.value);
+                  setAlbumName(e.target.value);
                 }} />
               </div>
             </div>
@@ -92,39 +92,39 @@ const Index = () => {
         <div className="container">
           <div className="panel-white">
             <div className="panel-head">
-              <h5>Daerah</h5>
+              <h5>Event Album</h5>
             </div>
 
             <div className="panel-body">
-              {regionals?.map((regional, index) => (
+              {albums?.map((item, index) => (
                 <div className="card-style-2 hover-up">
                   <h6 className={`mx-3`}>{index + 1}</h6>
                   <div className="card-head">
                     <div className="card-title">
-                      <h6>{regional.name}</h6>
+                      <h6>{item.name}</h6>
                     </div>
                   </div>
                   <div className="card-price d-flex gap-3 align-items-center">
-                    <Button variant="warning" onClick={() => handleShow(regional.id)}>
+                    <Button variant="warning" onClick={() => handleShow(item.id)}>
                       Edit
                     </Button>
-                    <button className="btn btn-danger" onClick={() => handleDelete(regional.id)}>Hapus</button>
+                    <button className="btn btn-danger" onClick={() => handleDelete(item.id)}>Hapus</button>
                     <Modal
                       centered
                       show={
-                        show && modalId === regional.id
+                        show && modalId === item.id
                       }
                       onHide={handleClose}
                     >
                       <Modal.Header closeButton>
-                        <Modal.Title>Update Lokasi {regional.name}</Modal.Title>
+                        <Modal.Title>Update Lokasi {item.name}</Modal.Title>
                       </Modal.Header>
                       <Modal.Body>
                         <div className="form-group">
                           <label className="form-label" htmlFor="input-1">Nama Lokasi</label>
                           <input className="form-control" id="input-1" type="text" required="" name="fullname"
-                                 defaultValue={regional.name} onChange={(e) => {
-                            setRegionalName(e.target.value);
+                                 defaultValue={item.name} onChange={(e) => {
+                            setAlbumName(e.target.value);
                           }} />
                         </div>
                       </Modal.Body>
