@@ -1,6 +1,38 @@
-import React from 'react'
-
+import React, { useEffect } from "react";
+import Axios from 'axios'
+import { deleteCookie, getCookie } from 'cookies-next'
+import Swal from 'sweetalert2'
+import { useRouter } from "next/router";
 const Header = () => {
+    const router = useRouter()
+    const handleLogout = () => {
+        const token = getCookie('token');
+        Axios.post(process.env.NEXT_PUBLIC_API_URL + 'admin/auth/logout', {}, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+          .then(response => {
+              deleteCookie('token')
+              Swal.fire(
+                "Sukses!",
+                "Berhasil Logout!",
+                "success",
+              );
+              router.push('/login')
+          })
+          .catch(error => {
+              console.error('Logout error:', error);
+          });
+    };
+
+    useEffect(() => {
+        const token = getCookie('token');
+        if (!token) {
+            router.push('/login')
+        }
+    });
+
     return (
         <>
             <header className="header sticky-bar">
@@ -41,9 +73,9 @@ const Header = () => {
                                             type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">Super
                                             Admin</a>
                                             <ul className="dropdown-menu dropdown-menu-light dropdown-menu-end" aria-labelledby="dropdownProfile">
-                                                <li><a className="dropdown-item" href="profile.html">Profiles</a></li>
-                                                <li><a className="dropdown-item" href="my-resume.html">CV Manager</a></li>
-                                                <li><a className="dropdown-item" href="login.html">Logout</a></li>
+                                                {/*<li><a className="dropdown-item" href="profile.html">Profiles</a></li>*/}
+                                                {/*<li><a className="dropdown-item" href="my-resume.html">CV Manager</a></li>*/}
+                                                <li><a className="dropdown-item" onClick={handleLogout}>Logout</a></li>
                                             </ul>
                                         </div>
                                     </div>

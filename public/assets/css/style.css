@@ -498,6 +498,7 @@ a {
   padding: 10px 20px;
   color: #4F5E64;
   font-size: 14px;
+  cursor: pointer;
 }
 .dropdown .dropdown-menu.show .dropdown-item.active {
   text-decoration: none;
